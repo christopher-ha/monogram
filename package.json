@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.27",
+    "i": "^0.3.7",
     "next": "14.0.1",
+    "npm": "^10.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "sass": "^1.69.5",
     "sharp": "^0.32.6"
   },
   "devDependencies": {

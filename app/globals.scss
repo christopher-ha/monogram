@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+* {
+  color: #111111;
+}
+
+/* Mobile, Typography */
+h1 {
+  font-size: 2.75rem; /* 44px */
+  font-weight: 900; /* Black */
+
+  @include tablet {
+    font-size: 6rem;
+  }
+
+  @include desktop {
+    font-size: 8rem; /* 128px */
+  }
+}
+
+h2 {
+  font-size: 2.25rem; /* 36px */
+  font-weight: 900; /* Black */
+
+  @include tablet {
+    font-size: 3.5rem;
+  }
+
+  @include desktop {
+    font-size: 6rem; /* 96px */
+  }
+}
+
+h3 {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 500; /* Medium */
+
+  @include tablet {
+    font-size: 2rem;
+  }
+
+  @include desktop {
+    font-size: 3rem; /* 48px */
+    font-weight: 600; /* Semi-Bold */
+    line-height: 3.75rem; /* 60px */
+  }
+}
+
+h4 {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 500; /* Medium */
+  line-height: 1.5rem; /* 24px */
+
+  @include tablet {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  @include desktop {
+    font-size: 2rem; /* 32px */
+  }
+}
+
+p {
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 400; /* Medium */
+
+  @include tablet {
+    font-size: 1.25rem;
+  }
+
+  @include desktop {
+    font-size: 1.75rem; /* 28px */
+  }
+}
+
+code {
+  font-size: 0.25rem; /* 4px */
+
+  @include desktop {
+    font-size: 0.5rem; /* 8px */
+  }
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  @include tablet {
+    height: 1100px;
+  }
+
+  &__image {
+    position: absolute;
+    border-radius: 48px;
+    width: 180px;
+    height: 475px;
+    // Move to center, then apply translations from center point.
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow:
+      0px 1.3px 2.4px rgba(0, 0, 0, 0.008),
+      0px 4.5px 8px rgba(0, 0, 0, 0.012),
+      0px 20px 36px rgba(0, 0, 0, 0.02);
+
+    &:nth-child(1) {
+      transform: translateX(-50%) translateX(-80%) translateY(30%);
+    }
+    &:nth-child(2) {
+      transform: translateX(-50%) translateX(35%) translateY(0%);
+    }
+    &:nth-child(3) {
+      transform: translateX(-50%) translateX(-20%) translateY(70%);
+    }
+    &:nth-child(4) {
+      transform: translateX(-50%) translateX(90%) translateY(50%);
+    }
+
+    @include tablet {
+      border-radius: 64px;
+      width: 400px;
+      height: 800px;
+    }
+
+    @include desktop {
+      border-radius: 64px;
+      width: 280px;
+      height: 670px;
+    }
+  }
+
+  &__full {
+    background-image: url('/gradient-full.jpg');
+    background-size: 250%;
+    background-repeat: no-repeat;
+    background-position: right;
+    box-shadow:
+      0px 1.3px 2.4px rgba(0, 0, 0, 0.008),
+      0px 4.5px 8px rgba(0, 0, 0, 0.012),
+      0px 20px 36px rgba(0, 0, 0, 0.02);
+    @include tablet {
+      border-radius: 64px;
+    }
+  }
+
+  &__blur {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(80px);
+    -webkit-backdrop-filter: blur(80px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  &__code {
+    font-size: 0.22rem;
+    position: absolute;
+    top: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateX(-5%);
+    z-index: 20;
+    text-shadow:
+      0 0 1px #fff,
+      0 0 3px #fff,
+      0 0 10px #44dbff,
+      0 0 20px #44dbff;
+    animation: glow 3s ease-in-out infinite alternate;
+
+    @include tablet {
+      font-size: 0.43rem;
+      top: 5rem;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #44dbff;
+  }
+  to {
+    text-shadow: 0 0 15px #44dbff;
+  }
+}
+
+.logo {
+  margin: 2rem;
+  animation: opacity 1s ease-in-out;
+
+  &:nth-child(1) {
+    filter: drop-shadow(0px 0.5rem 4rem rgba(255, 255, 255, 1));
+
+    @include tablet {
+    }
+  }
+
+  &:nth-child(2) {
+    filter: drop-shadow(0px 0.5rem 4rem rgba(255, 255, 255, 0.75));
+    opacity: 0.75;
+  }
+
+  &:nth-child(3) {
+    filter: drop-shadow(0px 0.5rem 4rem rgba(255, 255, 255, 0.5));
+    opacity: 0.3;
+  }
+
+  &:nth-child(4) {
+    filter: drop-shadow(0px 0.5rem 4rem rgba(255, 255, 255, 0.25));
+    opacity: 0.1;
+  }
+
+  @include tablet {
+    margin: 4rem;
+  }
+}
+
+.glass {
+  &__gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(123, 245, 93, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+  }
+
+  &__border {
+    border: 1px solid rgba(113, 129, 109, 0.2);
+  }
+}
