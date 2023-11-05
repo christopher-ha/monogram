@@ -85,6 +85,7 @@ p {
 
   @include desktop {
     font-size: 1.75rem; /* 28px */
+    font-weight: 300; /* Regular */
   }
 }
 
@@ -96,13 +97,31 @@ code {
   }
 }
 
+.mouse {
+  position: absolute;
+  left: 50%;
+  width: 200px;
+  transform: translateX(-50%) translateX(-25%) translateY(15%);
+
+  @include tablet {
+    width: 285px;
+    transform: translateX(-50%) translateX(-60%) translateY(5%);
+  }
+
+  @include desktop {
+    width: 350px;
+    bottom: -32rem;
+    transform: translateX(-50%) translateX(-100%);
+  }
+}
+
 .hero {
   position: relative;
   width: 100%;
   overflow: hidden;
 
-  @include tablet {
-    height: 1100px;
+  @include desktop {
+    position: absolute;
   }
 
   &__image {
@@ -113,10 +132,12 @@ code {
     // Move to center, then apply translations from center point.
     left: 50%;
     transform: translateX(-50%);
-    box-shadow:
-      0px 1.3px 2.4px rgba(0, 0, 0, 0.008),
-      0px 4.5px 8px rgba(0, 0, 0, 0.012),
-      0px 20px 36px rgba(0, 0, 0, 0.02);
+
+    @include desktop {
+      left: auto;
+      top: 10%;
+      right: 10%;
+    }
 
     &:nth-child(1) {
       transform: translateX(-50%) translateX(-80%) translateY(30%);
