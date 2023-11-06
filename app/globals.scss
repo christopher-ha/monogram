@@ -222,31 +222,13 @@ code {
 .logo {
   margin: 2rem;
   animation: opacity 1s ease-in-out;
-
-  &:nth-child(1) {
-    filter: drop-shadow(0px 0.5rem 4rem rgba(255, 255, 255, 1));
-
-    @include tablet {
-    }
-  }
-
-  &:nth-child(2) {
-    filter: drop-shadow(0px 0.5rem 4rem rgba(255, 255, 255, 0.75));
-    opacity: 0.75;
-  }
-
-  &:nth-child(3) {
-    filter: drop-shadow(0px 0.5rem 4rem rgba(255, 255, 255, 0.5));
-    opacity: 0.3;
-  }
-
-  &:nth-child(4) {
-    filter: drop-shadow(0px 0.5rem 4rem rgba(255, 255, 255, 0.25));
-    opacity: 0.1;
-  }
+  filter: drop-shadow(0px -2rem 3rem #ffffff);
 
   @include tablet {
     margin: 4rem;
+  }
+
+  @include desktop {
   }
 }
 
