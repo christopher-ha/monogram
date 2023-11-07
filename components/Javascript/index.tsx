@@ -2,20 +2,22 @@ import Image from 'next/image';
 
 export default function Javascript() {
   return (
-    <section className="hero__full relative z-10 mx-4 flex h-[500px] flex-col items-center rounded-[48px] bg-transparent p-8 md:m-0 md:mx-16 md:h-[900px] md:p-16 lg:mx-auto lg:mt-48 lg:max-w-screen-2xl">
+    <section className="hero__full relative z-10 mx-4 flex h-[500px] flex-col items-center rounded-[48px] bg-transparent md:m-0 md:mx-8 md:h-[900px] lg:mx-auto lg:mt-48 lg:max-w-screen-2xl">
       <Image
-        className="z-0 max-h-full max-w-full rounded-3xl"
+        className="hero__background z-0 h-[450px] max-h-full max-w-full rounded-3xl md:h-[850px] md:rounded-[4rem]"
         src="/gradient-full.jpg"
         width={4098}
         height={3072}
         alt="A gradient fade between yellow and orange"
       />
       <div className="absolute z-50 flex flex-col items-center">
-        <h1 className="text-center text-white">javascript</h1>
-        <h4 className="pb-12 pt-8 text-center text-white lg:w-1/2">
-          Statically generated pages are brought to life with client-side
-          JavaScript libraries and frameworks, such as Algolia and Next.js.
-        </h4>
+        <div className="flex flex-col items-center px-8 pb-0 pt-4 md:px-24 md:pt-8">
+          <h1 className="text-center text-white">javascript</h1>
+          <h4 className="pb-12 pt-8 text-center text-white lg:w-7/12">
+            Statically generated pages are brought to life with client-side
+            JavaScript libraries and frameworks, such as Algolia and Next.js.
+          </h4>
+        </div>
         {/* Render codeBlock as string*/}
         <div className="relative">
           <Image

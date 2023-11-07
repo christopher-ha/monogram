@@ -170,12 +170,24 @@ code {
     // background-size: 250%;
     // background-repeat: no-repeat;
     // background-position: right;
-    box-shadow:
-      0px 1.3px 2.4px rgba(0, 0, 0, 0.008),
-      0px 4.5px 8px rgba(0, 0, 0, 0.012),
-      0px 20px 36px rgba(0, 0, 0, 0.02);
     @include tablet {
       border-radius: 64px;
+    }
+  }
+
+  &__background {
+    -webkit-transform: perspective(500px) rotateX(-4deg);
+    box-shadow:
+      0px 5.5px 3.6px rgba(0, 0, 0, 0.017),
+      0px 15.2px 10px rgba(0, 0, 0, 0.025),
+      0px 36.5px 24.1px rgba(0, 0, 0, 0.033),
+      0px 121px 80px rgba(0, 0, 0, 0.05);
+
+    @include tablet {
+      -webkit-transform: perspective(500px) rotateX(-2deg);
+    }
+    @include desktop {
+      -webkit-transform: perspective(500px) rotateX(-1deg);
     }
   }
 
