@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import Image from 'next/image';
 
 export default function Scores() {
@@ -16,7 +17,7 @@ export default function Scores() {
         <section className="glass__border relative z-20 m-4 -translate-y-16 rounded-[36px] md:m-12 md:-translate-y-32 md:rounded-[64px] lg:w-8/12">
           <div className="relative z-10 flex flex-col items-center justify-center p-8 md:p-24 lg:p-32 lg:pb-48">
             <h2 className="py-4 text-center text-lime-50">top audit scores</h2>
-            <div className="h-[100px]"></div>
+            <div></div>
             <div className="bg-gradient-to-b from-lime-200 via-neutral-400 to-neutral-600 bg-clip-text text-transparent lg:w-10/12 ">
               <p className="pb-4 text-transparent md:pb-8 lg:pb-12">
                 Search engines, business stakeholders, and end-users gauge a

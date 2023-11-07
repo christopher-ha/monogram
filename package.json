@@ -13,6 +13,7 @@
     "@react-three/fiber": "^8.15.10",
     "@react-three/postprocessing": "^2.15.10",
     "@studio-freight/lenis": "^1.0.27",
+    "framer-motion": "^10.16.4",
     "i": "^0.3.7",
     "next": "14.0.1",
     "npm": "^10.2.3",

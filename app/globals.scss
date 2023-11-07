@@ -102,6 +102,7 @@ code {
   left: 50%;
   width: 200px;
   transform: translateX(-50%) translateX(-25%) translateY(15%);
+  transform-origin: -100px;
 
   @include tablet {
     width: 285px;
@@ -131,23 +132,20 @@ code {
     height: 475px;
     // Move to center, then apply translations from center point.
     left: 50%;
-    transform: translateX(-50%);
-
-    @include desktop {
-      left: auto;
-      top: 10%;
-      right: 10%;
-    }
+    // transform: translateX(-50%);
 
     &:nth-child(1) {
       transform: translateX(-50%) translateX(-80%) translateY(30%);
     }
+
     &:nth-child(2) {
       transform: translateX(-50%) translateX(35%) translateY(0%);
     }
+
     &:nth-child(3) {
       transform: translateX(-50%) translateX(-20%) translateY(70%);
     }
+
     &:nth-child(4) {
       transform: translateX(-50%) translateX(90%) translateY(50%);
     }
@@ -159,10 +157,28 @@ code {
     }
 
     @include desktop {
-      border-radius: 64px;
+      left: auto;
+      top: 10%;
+      right: 10%;
       width: 280px;
       height: 670px;
     }
+  }
+
+  &__first {
+    transform: translateX(-80%) translateY(30%);
+  }
+
+  &__second {
+    transform: translateX(35%) translateY(0%);
+  }
+
+  &__third {
+    transform: translateX(-20%) translateY(70%);
+  }
+
+  &__fourth {
+    transform: translateX(90%) translateY(50%);
   }
 
   &__full {
@@ -176,6 +192,7 @@ code {
   }
 
   &__background {
+    transform: perspective(500px) rotateX(-4deg);
     -webkit-transform: perspective(500px) rotateX(-4deg);
     box-shadow:
       0px 5.5px 3.6px rgba(0, 0, 0, 0.017),
@@ -184,9 +201,11 @@ code {
       0px 121px 80px rgba(0, 0, 0, 0.05);
 
     @include tablet {
+      transform: perspective(500px) rotateX(-2deg);
       -webkit-transform: perspective(500px) rotateX(-2deg);
     }
     @include desktop {
+      transform: perspective(500px) rotateX(-2deg);
       -webkit-transform: perspective(500px) rotateX(-1deg);
     }
   }
