@@ -26,7 +26,7 @@ export default function Markup() {
           alt="A colorful brick wall made out of Legos, photographed by Omar Flores"
         />
         <Image
-          className="hero__image "
+          className="hero__image"
           src="/bricks.jpg"
           width={280}
           height={670}
