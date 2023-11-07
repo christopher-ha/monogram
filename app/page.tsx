@@ -1,5 +1,3 @@
-'use client';
-import { useState, useEffect } from 'react';
 import Intro from '../components/Intro';
 import Javascript from '../components/Javascript';
 import Logos from '../components/Logos';

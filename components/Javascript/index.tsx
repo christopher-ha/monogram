@@ -2,26 +2,35 @@ import Image from 'next/image';
 
 export default function Javascript() {
   return (
-    <section className="hero__full z-10 mx-4 flex h-[500px] flex-col items-center rounded-[48px] bg-transparent p-8 md:m-0 md:mx-16 md:h-[900px] md:p-16 lg:mx-auto lg:mt-48 lg:max-w-screen-2xl">
-      <h1 className="text-center text-white">javascript</h1>
-      <h4 className="pb-12 pt-8 text-center text-white lg:w-1/2">
-        Statically generated pages are brought to life with client-side
-        JavaScript libraries and frameworks, such as Algolia and Next.js.
-      </h4>
-      {/* Render codeBlock as string*/}
-      <div className="relative">
-        <Image
-          src="/computer-gradient.svg"
-          className="max-w-none md:w-[675px]"
-          width={350}
-          height={350}
-          alt="A vector rendering of a CRT computer."
-        />
-        <pre>
-          <code className="hero__code font-mono text-cyan-300">
-            {codeBlock}
-          </code>
-        </pre>
+    <section className="hero__full relative z-10 mx-4 flex h-[500px] flex-col items-center rounded-[48px] bg-transparent p-8 md:m-0 md:mx-16 md:h-[900px] md:p-16 lg:mx-auto lg:mt-48 lg:max-w-screen-2xl">
+      <Image
+        className="z-0 max-h-full max-w-full rounded-3xl"
+        src="/gradient-full.jpg"
+        width={4098}
+        height={3072}
+        alt="A gradient fade between yellow and orange"
+      />
+      <div className="absolute z-50 flex flex-col items-center">
+        <h1 className="text-center text-white">javascript</h1>
+        <h4 className="pb-12 pt-8 text-center text-white lg:w-1/2">
+          Statically generated pages are brought to life with client-side
+          JavaScript libraries and frameworks, such as Algolia and Next.js.
+        </h4>
+        {/* Render codeBlock as string*/}
+        <div className="relative">
+          <Image
+            src="/computer-gradient.svg"
+            className="max-w-none md:w-[675px]"
+            width={350}
+            height={350}
+            alt="A vector rendering of a CRT computer."
+          />
+          <pre>
+            <code className="hero__code font-mono text-cyan-300">
+              {codeBlock}
+            </code>
+          </pre>
+        </div>
       </div>
     </section>
   );
