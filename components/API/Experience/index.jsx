@@ -34,7 +34,7 @@ export default function Experience() {
       </EffectComposer>
 
       {/* Lighting */}
-      <ambientLight intensity={0.25} />
+      <ambientLight intensity={1} />
       <RandomizedLight
         radius={15}
         ambient={0.5}
@@ -43,7 +43,7 @@ export default function Experience() {
         bias={0.001}
       />
       <pointLight intensity={10} />
-      <Environment preset="dawn" resolution={16} />
+      <Environment files="/dawn.hdr" />
 
       {/* Objects */}
       {/* Trigonometry: Math.PI / 4 = 90 degrees, Math.PI = 180 degrees, then 135 degrees is 3(PI)/4 */}
