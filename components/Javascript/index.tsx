@@ -4,10 +4,10 @@ export default function Javascript() {
   return (
     <section className="hero__full relative z-10 mx-4 flex h-[500px] flex-col items-center rounded-[48px] bg-transparent md:m-0 md:mx-8 md:h-[900px] lg:mx-auto lg:mt-48 lg:max-w-screen-2xl">
       <Image
-        className="hero__background z-0 h-[450px] max-h-full max-w-full rounded-3xl md:h-[850px] md:rounded-[4rem]"
+        className="hero__background z-0 h-[450px] max-h-full max-w-full rounded-3xl md:h-[850px] md:rounded-[4rem] lg:w-[2048px]"
         src="/gradient-full.jpg"
-        width={4098}
-        height={3072}
+        width={1024}
+        height={768}
         alt="A gradient fade between yellow and orange"
       />
       <div className="absolute z-50 flex flex-col items-center">

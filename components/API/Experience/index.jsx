@@ -43,7 +43,7 @@ export default function Experience() {
         bias={0.001}
       />
       <pointLight intensity={10} />
-      <Environment preset="dawn" />
+      <Environment preset="dawn" resolution={16} />
 
       {/* Objects */}
       {/* Trigonometry: Math.PI / 4 = 90 degrees, Math.PI = 180 degrees, then 135 degrees is 3(PI)/4 */}
