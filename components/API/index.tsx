@@ -1,8 +1,15 @@
 import Image from 'next/image';
-import Experience from './Experience';
-import { Suspense } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
+
+const Experience = lazy(() => import('./Experience'));
 
 export default function API() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <section className="relative bg-neutral-900 text-center">
       {/* Text */}
@@ -23,9 +30,11 @@ export default function API() {
       />
       {/* 3D Sphere */}
       <section className="absolute -bottom-[16rem] z-20 flex aspect-square w-screen flex-col items-center border-2 border-solid border-purple-300 md:-bottom-[32rem] lg:-bottom-[42rem] lg:left-1/2 lg:mx-auto lg:aspect-auto lg:h-screen lg:max-w-screen-2xl lg:-translate-x-1/2">
-        <Suspense>
-          <Experience />
-        </Suspense>
+        {!isMounted ? null : (
+          <Suspense fallback={null}>
+            <Experience />
+          </Suspense>
+        )}
       </section>
     </section>
   );

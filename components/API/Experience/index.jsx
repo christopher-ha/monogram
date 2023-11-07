@@ -1,6 +1,5 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import { KernelSize } from 'postprocessing';
@@ -35,6 +34,7 @@ export default function Experience() {
             <GradientTexture
               stops={[0, 0.33, 0.66, 1]}
               colors={['#01A6DC', '#8801E4', '#F5CBE1', '#FDF8FA']}
+              size={16}
             />
           </meshBasicMaterial>
         </mesh>
