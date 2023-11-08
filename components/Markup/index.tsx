@@ -12,10 +12,6 @@ export default function Markup() {
   const y2 = useTransform(scrollYProgress, [0, 1], ['0%', '-50%']);
   const y3 = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
 
-  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    console.log('Scroll changed to', latest);
-  });
-
   return (
     <div className="mt-[12rem] flex justify-center  md:mt-[32rem]  lg:mt-[48rem]">
       <section
