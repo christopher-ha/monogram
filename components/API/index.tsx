@@ -26,7 +26,7 @@ export default function API() {
       <Image
         className="absolute w-full"
         alt="Wave"
-        src="/wave-bottom.svg"
+        src="/images/wave-bottom.svg"
         width={400}
         height={200}
       />

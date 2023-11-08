@@ -6,7 +6,7 @@ export default function Logos() {
       <Image
         className="absolute -top-48 w-full scale-y-[500%]"
         alt="Wave"
-        src="/wave-top.svg"
+        src="/images/wave-top.svg"
         width={400}
         height={200}
       />

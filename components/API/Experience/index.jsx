@@ -12,7 +12,7 @@ import {
 } from '@react-three/drei';
 
 export default function Experience() {
-  const { nodes, materials } = useGLTF('/api-logos.glb');
+  const { nodes, materials } = useGLTF('/3d/api-logos.glb');
   return (
     <Canvas>
       {/* Controls */}
@@ -43,7 +43,7 @@ export default function Experience() {
         bias={0.001}
       />
       <pointLight intensity={10} />
-      <Environment files="/dawn.hdr" />
+      <Environment files="/3d/dawn.hdr" />
 
       {/* Objects */}
       {/* Trigonometry: Math.PI / 4 = 90 degrees, Math.PI = 180 degrees, then 135 degrees is 3(PI)/4 */}
@@ -174,4 +174,4 @@ export default function Experience() {
   );
 }
 
-useGLTF.preload('/api-logos.glb');
+useGLTF.preload('/3d/api-logos.glb');

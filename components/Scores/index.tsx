@@ -6,7 +6,7 @@ export default function Scores() {
     <section className="overflow-hidden">
       {/* Relocate the brick wall image to use relative positioning to maintain the stack order above the audit scores. This resolves the issue of an undefined container height caused by absolute positioning. Change scale origin to bottom so that it scales upwards, and add padding to prevent it from clipping with overflow hidden.*/}
       <Image
-        src="/brick-wall.svg"
+        src="/images/brick-wall.svg"
         className="z-20 origin-bottom scale-[2.5] pt-24 md:pt-36 lg:w-full lg:scale-100 lg:pt-48 "
         width={900}
         height={120}

@@ -1,35 +1,19 @@
 import Image from 'next/image';
-import {
-  m,
-  useScroll,
-  useMotionValueEvent,
-  useMotionValue,
-  useTransform,
-} from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { m, useTransform, MotionValue } from 'framer-motion';
 
-export default function Intro() {
-  const ref = useRef(null);
-  const { scrollY } = useScroll({
-    target: ref,
-    offset: ['start start', 'start end'],
-  });
+interface MotionProps {
+  scrollY: MotionValue<number>;
+}
 
-  const y1 = useTransform(scrollY, (value) => value * -0.1 + 100);
-  const y2 = useTransform(scrollY, (value) => value * -0.2 + 100);
-  const yh = useTransform(scrollY, (value) => value * -0.3);
-  const yh2 = useTransform(scrollY, (value) => value * -0.25);
+export default function Intro({ scrollY }: MotionProps) {
+  const y1 = useTransform(scrollY, (value: number) => value * -0.2 + 100);
+  const y2 = useTransform(scrollY, (value: number) => value * -0.4 + 100);
+  const yh = useTransform(scrollY, (value: number) => value * -0.5);
+  const yh2 = useTransform(scrollY, (value: number) => value * -0.4);
   const r = useTransform(scrollY, [0, 1200], [0, 60]);
 
-  useMotionValueEvent(r, 'change', (latest) => {
-    console.log(latest);
-  });
-
   return (
-    <section
-      ref={ref}
-      className="flex flex-col justify-center lg:relative lg:mx-auto lg:h-screen lg:max-w-screen-2xl lg:flex-row"
-    >
+    <section className="flex flex-col justify-center lg:relative lg:mx-auto lg:h-screen lg:max-w-screen-2xl lg:flex-row">
       {/* Header and Description */}
       <section className="relative z-10 m-12 flex flex-col items-center justify-center text-center md:m-16 md:mb-32 lg:z-10 lg:m-24 lg:items-start lg:justify-start lg:text-left">
         <m.h1 style={{ y: yh }}>
@@ -52,7 +36,7 @@ export default function Intro() {
       >
         <Image
           className="w-[200px] md:w-[300px] lg:w-[350px]"
-          src="/mouse.png"
+          src="/images/mouse.png"
           width={285}
           height={705}
           quality={100}
@@ -68,7 +52,7 @@ export default function Intro() {
               transform: `translateX(-50%) translateX(-80%) translateY(30%)`,
             }}
             className="hero__image"
-            src="/gradient-left.jpg"
+            src="/images/gradient-left.jpg"
             width={280}
             height={630}
             quality={100}
@@ -83,7 +67,7 @@ export default function Intro() {
             style={{
               transform: `translateX(-50%) translateX(35%) translateY(0%)`,
             }}
-            src="/gradient-right.jpg"
+            src="/images/gradient-right.jpg"
             width={280}
             height={670}
             quality={100}

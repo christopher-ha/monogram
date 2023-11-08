@@ -19,7 +19,7 @@ export default function Markup() {
       <section className="hero h-[900px] md:h-[2000px] lg:h-[1400px]">
         <Image
           className="hero__image"
-          src="/bricks.jpg"
+          src="/images/bricks.jpg"
           width={280}
           height={630}
           quality={100}
@@ -27,7 +27,7 @@ export default function Markup() {
         />
         <Image
           className="hero__image"
-          src="/bricks.jpg"
+          src="/images/bricks.jpg"
           width={280}
           height={670}
           quality={100}
@@ -36,7 +36,7 @@ export default function Markup() {
         <div className="hero__image hero__blur"></div>
         <div className="hero__image hero__blur"></div>
         <Image
-          src="/brick-falling.svg"
+          src="/images/brick-falling.svg"
           className="absolute bottom-16 left-1/2 z-20 w-9/12 -translate-x-1/2 md:bottom-72 md:w-9/12 lg:left-1/4 lg:w-1/3"
           width={360}
           height={260}

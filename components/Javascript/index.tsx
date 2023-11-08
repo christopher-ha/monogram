@@ -21,7 +21,7 @@ export default function Javascript() {
         {/* Render codeBlock as string*/}
         <div className="relative">
           <Image
-            src="/computer-gradient.svg"
+            src="/images/computer-gradient.svg"
             className="max-w-none md:w-[675px]"
             width={350}
             height={350}
