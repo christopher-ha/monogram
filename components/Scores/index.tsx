@@ -14,10 +14,6 @@ export default function Scores() {
   const path3 = useTransform(scrollYProgress, [0, 0.88], [0, 1]);
   const path4 = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    console.log('Scroll changed to', latest);
-  });
-
   return (
     <section className="overflow-hidden">
       {/* Relocate the brick wall image to use relative positioning to maintain the stack order above the audit scores. This resolves the issue of an undefined container height caused by absolute positioning. Change scale origin to bottom so that it scales upwards, and add padding to prevent it from clipping with overflow hidden.*/}

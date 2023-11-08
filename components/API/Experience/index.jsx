@@ -14,7 +14,7 @@ import {
 export default function Experience() {
   const { nodes, materials } = useGLTF('/3d/api-logos.glb');
   return (
-    <Canvas performance={{ min: 0.5 }}>
+    <Canvas>
       {/* Controls */}
       <OrbitControls
         autoRotate

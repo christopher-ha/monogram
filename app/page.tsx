@@ -7,19 +7,8 @@ import API from '../components/API';
 import Markup from '../components/Markup';
 import Scores from '../components/Scores';
 import { LazyMotion, domAnimation } from 'framer-motion';
-import { useEffect } from 'react';
-import Lenis from '@studio-freight/lenis';
 
 export default function Home() {
-  useEffect(() => {
-    const lenis = new Lenis();
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  }, []);
-
   return (
     <LazyMotion features={domAnimation}>
       <main className="flex flex-col justify-center">
