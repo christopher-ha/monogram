@@ -38,11 +38,12 @@ export default function API() {
         {/* 3D Sphere */}
         <section className="absolute -bottom-[16rem] z-20 flex aspect-square w-screen flex-col items-center md:-bottom-[32rem] lg:-bottom-[42rem] lg:left-1/2 lg:mx-auto lg:aspect-auto lg:h-screen lg:max-w-screen-2xl lg:-translate-x-1/2">
           {!isMounted ? null : (
-            <Suspense fallback={null}>{/* <Experience /> */}</Suspense>
+            <Suspense fallback={null}>
+              <Experience />
+            </Suspense>
           )}
         </section>
       </section>
-      {/* <div className="h-[400px]"></div> */}
     </>
   );
 }

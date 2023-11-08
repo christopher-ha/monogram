@@ -1,17 +1,6 @@
 import Image from 'next/image';
-import {
-  m,
-  motion,
-  useTransform,
-  useScroll,
-  MotionValue,
-  useMotionValueEvent,
-} from 'framer-motion';
+import { m, useTransform, useScroll } from 'framer-motion';
 import { useRef } from 'react';
-
-interface MotionProps {
-  scrollY: MotionValue<number>;
-}
 
 export default function Intro() {
   const ref = useRef(null);
