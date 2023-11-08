@@ -3,13 +3,25 @@ import Image from 'next/image';
 export default function Logos() {
   return (
     <section className="relative z-0 m-0 bg-neutral-900 pt-48 md:pt-72">
-      <Image
-        className="absolute -top-48 w-full scale-y-[500%]"
+      <svg
+        className="absolute -top-12 scale-y-[500%]"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
+        <path
+          fill="#171717"
+          fill-opacity="1"
+          d="M0,96L120,85.3C240,75,480,53,720,53.3C960,53,1200,75,1320,85.3L1440,96L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+        ></path>
+      </svg>
+      {/* <Image
+        className="absolute -top-48  w-full scale-y-[500%]"
         alt="Wave"
-        src="/images/wave-top.svg"
-        width={400}
-        height={200}
-      />
+        src="/images/wave-top.png"
+        quality={100}
+        width={1440}
+        height={320}
+      /> */}
       <div className="flex flex-col items-center lg:mx-auto lg:max-w-screen-2xl">
         {/* Desktop: Row, 2 - Space Around */}
         <div className="flex flex-col items-center lg:flex lg:w-full lg:flex-row lg:justify-around">

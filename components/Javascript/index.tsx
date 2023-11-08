@@ -1,11 +1,28 @@
 import Image from 'next/image';
+import { m, useTransform, MotionValue } from 'framer-motion';
 
-export default function Javascript() {
+interface MotionProps {
+  scrollY: MotionValue<number>;
+}
+
+export default function Javascript({ scrollY }: MotionProps) {
+  const yHero = useTransform(scrollY, (value: number) => value * -0.02);
+
   return (
-    <section className="hero__full relative z-10 mx-4 flex h-[500px] flex-col items-center rounded-[48px] bg-transparent md:m-0 md:mx-8 md:h-[900px] lg:mx-auto lg:mt-48 lg:max-w-screen-2xl">
+    <m.section
+      style={{ y: yHero }}
+      className="hero__full relative z-10 mx-4 flex h-[500px] flex-col items-center rounded-[48px] bg-transparent md:m-0 md:mx-8 md:h-[900px] lg:mx-auto lg:mt-48 lg:max-w-screen-2xl"
+    >
       <Image
         className="hero__background z-0 h-[450px] max-h-full max-w-full rounded-3xl md:h-[850px] md:rounded-[4rem] lg:w-[2048px]"
-        src="/gradient-full.jpg"
+        src="/images/gradient-full.jpg"
+        width={1024}
+        height={768}
+        alt="A gradient fade between yellow and orange"
+      />
+      <Image
+        className="hidden lg:absolute lg:right-[4rem] lg:top-[12rem] lg:block lg:w-1/4"
+        src="/images/mouse-trail.png"
         width={1024}
         height={768}
         alt="A gradient fade between yellow and orange"
@@ -34,7 +51,7 @@ export default function Javascript() {
           </pre>
         </div>
       </div>
-    </section>
+    </m.section>
   );
 }
 

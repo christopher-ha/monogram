@@ -36,7 +36,7 @@ export default function Home() {
         <Intro scrollY={scrollY} />
 
         {/* Javascript*/}
-        <Javascript />
+        <Javascript scrollY={scrollY} />
 
         {/* Logos */}
         <Logos />

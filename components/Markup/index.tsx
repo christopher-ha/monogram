@@ -1,48 +1,86 @@
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import {
+  m,
+  useTransform,
+  MotionValue,
+  useScroll,
+  useMotionValueEvent,
+} from 'framer-motion';
+
+interface MotionProps {
+  scrollY: MotionValue<number>;
+}
 
 export default function Markup() {
+  const ref = useRef<HTMLDivElement>(null);
+  const sectionTopRef = useRef<number>(0);
+  const { scrollY } = useScroll({
+    target: ref,
+    offset: ['start start', 'end end'],
+  });
+
+  // Find the top of the div in pixels and store it in a ref to retain across renders.
+  useEffect(() => {
+    if (ref.current === null) {
+      return;
+    }
+    sectionTopRef.current = ref.current.getBoundingClientRect().top;
+  }, []);
+
+  // Subtract scrollY from sectionTop, resulting in the new top starting from 0.
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    const offsetTop = latest - sectionTopRef.current;
+    if (offsetTop < 0) {
+      return;
+    }
+    // Use this value to
+    return console.log(offsetTop);
+  });
+
   return (
-    <section className="relative mt-[16rem] flex flex-col justify-center md:mt-[36rem] lg:relative lg:mx-auto  lg:mt-[42rem] lg:h-screen lg:flex-row">
-      {/* Text */}
-      <section className=" relative z-10 m-12 flex flex-col items-center justify-center text-center md:m-16 lg:z-10 lg:m-24 lg:max-w-screen-2xl lg:items-start lg:justify-start lg:text-left">
-        <h1>markup</h1>
-        <h4 className="py-4 md:p-12 lg:w-5/12 lg:p-0 lg:py-12">
-          When ready for deployment, a static-site generator such as Astro or
-          Next.js is used to compile the website. The end result is a collection
-          of pre-rendered HTML pages that can be delivered lightning-fast over a
-          CDN like Vercel’s Edge Network.
-        </h4>
+    <div ref={ref}>
+      <section className="relative mt-[12rem] flex flex-col justify-center md:mt-[32rem] lg:relative lg:mx-auto lg:mt-[48rem] lg:h-screen lg:flex-row">
+        {/* Text */}
+        <section className="relative z-10 m-12 flex flex-col items-center justify-center text-center md:m-16 lg:z-10 lg:m-24 lg:max-w-screen-2xl lg:items-start lg:justify-start lg:text-left">
+          <m.h1>markup</m.h1>
+          <m.h4 className="py-4 md:p-12 lg:w-5/12 lg:p-0 lg:py-12">
+            When ready for deployment, a static-site generator such as Astro or
+            Next.js is used to compile the website. The end result is a
+            collection of pre-rendered HTML pages that can be delivered
+            lightning-fast over a CDN like Vercel’s Edge Network.
+          </m.h4>
+        </section>
+        {/* Text */}
+        {/* Rectangular gradients and blur + Javascript */}
+        <section className="hero h-[900px] md:h-[2000px] lg:h-[1400px]">
+          <Image
+            className="hero__image"
+            src="/images/bricks.jpg"
+            width={280}
+            height={630}
+            quality={100}
+            alt="A colorful brick wall made out of Legos, photographed by Omar Flores"
+          />
+          <Image
+            className="hero__image"
+            src="/images/bricks.jpg"
+            width={280}
+            height={670}
+            quality={100}
+            alt="A colorful brick wall made out of Legos, photographed by Omar Flores"
+          />
+          <div className="hero__image hero__blur"></div>
+          <div className="hero__image hero__blur"></div>
+          <Image
+            src="/images/brick-falling.svg"
+            className="absolute bottom-16 left-1/2 z-20 w-9/12 -translate-x-1/2 md:bottom-72 md:w-9/12 lg:left-1/4 lg:w-1/3"
+            width={360}
+            height={260}
+            alt="A vector of bricks falling."
+          />
+        </section>
       </section>
-      {/* Text */}
-      {/* Rectangular gradients and blur + Javascript */}
-      <section className="hero h-[900px] md:h-[2000px] lg:h-[1400px]">
-        <Image
-          className="hero__image"
-          src="/images/bricks.jpg"
-          width={280}
-          height={630}
-          quality={100}
-          alt="A colorful brick wall made out of Legos, photographed by Omar Flores"
-        />
-        <Image
-          className="hero__image"
-          src="/images/bricks.jpg"
-          width={280}
-          height={670}
-          quality={100}
-          alt="A colorful brick wall made out of Legos, photographed by Omar Flores"
-        />
-        <div className="hero__image hero__blur"></div>
-        <div className="hero__image hero__blur"></div>
-        <Image
-          src="/images/brick-falling.svg"
-          className="absolute bottom-16 left-1/2 z-20 w-9/12 -translate-x-1/2 md:bottom-72 md:w-9/12 lg:left-1/4 lg:w-1/3"
-          width={360}
-          height={260}
-          alt="A vector of bricks falling."
-        />
-      </section>
-    </section>
+    </div>
   );
 }
