@@ -25,10 +25,13 @@ export default function ProgressCircle({ pathProgress }: ProgressCircleProps) {
           r="35"
           pathLength="1"
           className="indicator"
-          style={{ pathLength: pathProgress }}
+          style={{ pathLength: pathProgress, opacity: pathProgress }}
         />
       </svg>
-      <m.p className="score absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] text-lime-50">
+      <m.p
+        style={{ opacity: pathProgress }}
+        className="score absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] text-lime-50"
+      >
         {progressDisplay}
       </m.p>
     </div>
