@@ -107,12 +107,12 @@ code {
   }
 
   &__image {
-    position: absolute;
+    // position: absolute;
     border-radius: 48px;
     width: 180px;
     height: 475px;
     // Move to center, then apply translations from center point.
-    left: 50%;
+    // left: 50%;
     // transform: translateX(-50%);
 
     @include tablet {
@@ -122,9 +122,6 @@ code {
     }
 
     @include desktop {
-      left: auto;
-      top: 10%;
-      right: 10%;
       width: 280px;
       height: 670px;
     }

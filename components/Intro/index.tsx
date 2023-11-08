@@ -1,29 +1,52 @@
 import Image from 'next/image';
-import { m, useTransform, MotionValue } from 'framer-motion';
+import {
+  m,
+  motion,
+  useTransform,
+  useScroll,
+  MotionValue,
+  useMotionValueEvent,
+} from 'framer-motion';
+import { useRef } from 'react';
 
 interface MotionProps {
   scrollY: MotionValue<number>;
 }
 
-export default function Intro({ scrollY }: MotionProps) {
-  const yImage1 = useTransform(scrollY, (value: number) => value * -0.1 + 100);
-  const yImage2 = useTransform(scrollY, (value: number) => value * -0.2 + 100);
-  const yText1 = useTransform(scrollY, (value: number) => value * -0.3);
-  const yText2 = useTransform(scrollY, (value: number) => value * -0.2);
-  const rotation = useTransform(scrollY, [0, 1200], [0, 60]);
+export default function Intro() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+  let y1 = useTransform(scrollYProgress, [0, 1], ['0%', '-50%']);
+  let y2 = useTransform(scrollYProgress, [0, 1], ['0%', '-100%']);
+  // const yImage1 = useTransform(scrollY, (value: number) => value * -0.1 + 100);
+  // const yImage2 = useTransform(scrollY, (value: number) => value * -0.2 + 100);
+  // const yText1 = useTransform(scrollY, (value: number) => value * -0.3);
+  // const yText2 = useTransform(scrollY, (value: number) => value * -0.2);
+  // const rotation = useTransform(scrollY, [0, 1200], [0, 60]);
+  const rotation = useTransform(scrollYProgress, [0, 1], [0, 60]);
+
+  useMotionValueEvent(rotation, 'change', (latest) => {
+    console.log('ScrollProgress:', latest);
+  });
 
   return (
-    <section className="flex flex-col justify-center lg:relative lg:mx-auto lg:h-screen lg:max-w-screen-2xl lg:flex-row">
+    <section
+      ref={ref}
+      className="flex flex-col justify-center lg:relative lg:mx-auto lg:h-screen lg:max-w-screen-2xl lg:flex-row"
+    >
       {/* Header and Description */}
       <section className="relative z-10 m-12 flex flex-col items-center justify-center text-center md:m-16 md:mb-32 lg:z-10 lg:m-24 lg:items-start lg:justify-start lg:text-left">
-        <m.h1 style={{ y: yText1 }}>
+        <m.h1 style={{ y: y2 }}>
           jamstack{' '}
           <span className="bg-gradient-to-r from-orange-300 via-red-300 to-purple-400 bg-clip-text text-transparent">
             101
           </span>
         </m.h1>
         <m.h3
-          style={{ y: yText2 }}
+          style={{ y: y1 }}
           className="bg-gradient-to-t from-neutral-800 to-neutral-400 bg-clip-text pt-4 text-center text-transparent md:w-10/12 lg:w-5/12 lg:text-left"
         >
           Uncover the synergy of JavaScript, APIs, and Markup to build faster,
@@ -31,8 +54,8 @@ export default function Intro({ scrollY }: MotionProps) {
         </m.h3>
       </section>
       <m.div
-        className="md: absolute -bottom-[5rem] left-[3rem] origin-[-150px] md:-bottom-[12rem] md:left-[8rem] md:origin-[-400px] lg:-bottom-[32rem] lg:left-64 lg:origin-[-450px]"
         style={{ rotate: rotation }}
+        className="md: absolute -bottom-[5rem] left-[3rem] origin-[-150px] md:-bottom-[12rem] md:left-[8rem] md:origin-[-400px] lg:-bottom-[32rem] lg:left-64 lg:origin-[-450px]"
       >
         <Image
           className="w-[200px] md:w-[300px] lg:w-[350px]"
@@ -45,11 +68,11 @@ export default function Intro({ scrollY }: MotionProps) {
         />
       </m.div>
       {/* Rectangular gradients and blur + Javascript */}
-      <section className="hero h-[700px] md:h-[1200px] lg:h-[1400px]">
-        <m.div style={{ y: yImage1 }}>
+      <section className="hero flex h-[700px] flex-col items-center justify-center md:h-[1200px] lg:left-[24rem] lg:h-[1400px]">
+        <m.div className="absolute w-fit" style={{ y: y1 }}>
           <Image
             style={{
-              transform: `translateX(-50%) translateX(-80%) translateY(30%)`,
+              transform: `translateX(-80%) translateY(30%)`,
             }}
             className="hero__image"
             src="/images/gradient-left.jpg"
@@ -61,11 +84,11 @@ export default function Intro({ scrollY }: MotionProps) {
           />
         </m.div>
 
-        <m.div style={{ y: yImage1 }}>
+        <m.div className="absolute w-fit" style={{ y: y2 }}>
           <Image
             className="hero__image"
             style={{
-              transform: `translateX(-50%) translateX(35%) translateY(0%)`,
+              transform: `translateX(35%) translateY(0%)`,
             }}
             src="/images/gradient-right.jpg"
             width={280}
@@ -76,20 +99,20 @@ export default function Intro({ scrollY }: MotionProps) {
           />
         </m.div>
 
-        <m.div style={{ y: yImage2 }}>
+        <m.div className="absolute w-fit" style={{ y: y1 }}>
           <div
             className="hero__image hero__blur"
             style={{
-              transform: `translateX(-50%) translateX(-20%) translateY(70%)`,
+              transform: `translateX(-20%) translateY(70%)`,
             }}
           ></div>
         </m.div>
 
-        <m.div style={{ y: yImage2 }}>
+        <m.div className="absolute w-fit" style={{ y: y2 }}>
           <div
             className="hero__image hero__blur"
             style={{
-              transform: `translateX(-50%) translateX(90%) translateY(50%)`,
+              transform: `translateX(90%) translateY(50%)`,
             }}
           ></div>
         </m.div>

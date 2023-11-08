@@ -33,7 +33,7 @@ export default function Home() {
     <LazyMotion features={domAnimation}>
       <main ref={ref} className="flex flex-col justify-center">
         {/* Title, CTA, and Gradients */}
-        <Intro scrollY={scrollY} />
+        <Intro />
 
         {/* Javascript*/}
         <Javascript scrollY={scrollY} />
