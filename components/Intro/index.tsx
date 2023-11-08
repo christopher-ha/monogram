@@ -1,25 +1,28 @@
 import Image from 'next/image';
-import { m, useScroll, useMotionValueEvent, useTransform } from 'framer-motion';
+import {
+  m,
+  useScroll,
+  useMotionValueEvent,
+  useMotionValue,
+  useTransform,
+} from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 
 export default function Intro() {
-  const [offset, setOffset] = useState(0);
+  const ref = useRef(null);
+  const { scrollY } = useScroll({
+    target: ref,
+    offset: ['start start', 'start end'],
+  });
 
-  const handleScroll = () => {
-    const pageOffset = window.scrollY;
-    window.requestAnimationFrame(() => {
-      setOffset(pageOffset);
-    });
-  };
-
-  useEffect(() => {
-    // const handleScroll = () => setOffset(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const y1 = useTransform(scrollY, (value) => value * -0.1 + 100);
+  const y2 = useTransform(scrollY, (value) => value * -0.2 + 100);
 
   return (
-    <section className="flex flex-col justify-center lg:relative lg:mx-auto lg:h-screen lg:max-w-screen-2xl lg:flex-row">
+    <section
+      ref={ref}
+      className="flex flex-col justify-center lg:relative lg:mx-auto lg:h-screen lg:max-w-screen-2xl lg:flex-row"
+    >
       {/* Header and Description */}
       <section className="relative z-10 m-12 flex flex-col items-center justify-center text-center md:m-16 md:mb-32 lg:z-10 lg:m-24 lg:items-start lg:justify-start lg:text-left">
         <h1>
@@ -44,38 +47,53 @@ export default function Intro() {
       />
       {/* Rectangular gradients and blur + Javascript */}
       <section className="hero h-[700px] md:h-[1200px] lg:h-[1400px]">
-        <Image
-          className="hero__image"
-          style={{ top: `${offset * -0.1 + 100}px`, position: 'absolute' }}
-          src="/gradient-left.jpg"
-          width={280}
-          height={630}
-          quality={100}
-          priority
-          alt="A gradient fade between yellow and orange"
-        />
+        <m.div style={{ y: y1 }}>
+          <Image
+            style={{
+              transform: `translateX(-50%) translateX(-80%) translateY(30%)`,
+            }}
+            className="hero__image"
+            src="/gradient-left.jpg"
+            width={280}
+            height={630}
+            quality={100}
+            priority
+            alt="A gradient fade between yellow and orange"
+          />
+        </m.div>
 
-        <Image
-          className="hero__image "
-          style={{ top: `${offset * -0.1 + 100}px`, position: 'absolute' }}
-          src="/gradient-right.jpg"
-          width={280}
-          height={670}
-          quality={100}
-          priority
-          alt="A gradient fade between yellow and orange"
-        />
-        <div
-          className="hero__image hero__blur"
-          style={{
-            top: `${offset * -0.2 + 100}px`,
-            position: 'absolute',
-          }}
-        ></div>
-        <div
-          className="hero__image hero__blur"
-          style={{ top: `${offset * -0.2 + 100}px`, position: 'absolute' }}
-        ></div>
+        <m.div style={{ y: y1 }}>
+          <Image
+            className="hero__image"
+            style={{
+              transform: `translateX(-50%) translateX(35%) translateY(0%)`,
+            }}
+            src="/gradient-right.jpg"
+            width={280}
+            height={670}
+            quality={100}
+            priority
+            alt="A gradient fade between yellow and orange"
+          />
+        </m.div>
+
+        <m.div style={{ y: y2 }}>
+          <div
+            className="hero__image hero__blur"
+            style={{
+              transform: `translateX(-50%) translateX(-20%) translateY(70%)`,
+            }}
+          ></div>
+        </m.div>
+
+        <m.div style={{ y: y2 }}>
+          <div
+            className="hero__image hero__blur"
+            style={{
+              transform: `translateX(-50%) translateX(90%) translateY(50%)`,
+            }}
+          ></div>
+        </m.div>
       </section>
     </section>
   );

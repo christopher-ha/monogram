@@ -134,17 +134,17 @@ code {
     left: 50%;
     // transform: translateX(-50%);
 
-    &:nth-child(1) {
-      transform: translateX(-50%) translateX(-80%) translateY(30%);
-    }
+    // &:nth-child(1) {
+    //   transform: translateX(-50%) translateX(-80%) translateY(30%);
+    // }
 
-    &:nth-child(2) {
-      transform: translateX(-50%) translateX(35%) translateY(0%);
-    }
+    // &:nth-child(2) {
+    //   transform: translateX(-50%) translateX(35%) translateY(0%);
+    // }
 
-    &:nth-child(3) {
-      transform: translateX(-50%) translateX(-20%) translateY(70%);
-    }
+    // &:nth-child(3) {
+    //   transform: translateX(-50%) translateX(-20%) translateY(70%);
+    // }
 
     &:nth-child(4) {
       transform: translateX(-50%) translateX(90%) translateY(50%);
