@@ -7,11 +7,12 @@ export default function Scores() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['15% end', '20% center'],
+    offset: ['25% end', '30% center'],
   });
-  const path1 = useTransform(scrollYProgress, [0, 0.25], [0, 1]);
-  const path2 = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const path3 = useTransform(scrollYProgress, [0, 0.75], [0, 1]);
+  const path1 = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const path2 = useTransform(scrollYProgress, [0, 0.66], [0, 1]);
+  const path3 = useTransform(scrollYProgress, [0, 0.88], [0, 1]);
+  const path4 = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     console.log('Scroll changed to', latest);
@@ -28,32 +29,22 @@ export default function Scores() {
         alt="A vector of a brick wall."
       />
       {/* Top Audit Scores */}
-      <section ref={ref} className="bg-neutral-900">
-        <section className="glass__border relative z-20 m-4 -translate-y-16 rounded-[36px] md:m-12 md:-translate-y-32 md:rounded-[64px] lg:w-8/12">
-          <div className="relative z-10 p-8 md:p-16 lg:p-32 lg:pb-48">
-            <h2 className="py-4 text-center text-lime-50 md:py-8">
+      <section
+        ref={ref}
+        className="bg-neutral-900 lg:flex lg:flex-col lg:items-center"
+      >
+        <section className="glass__border lg:item-center relative z-20 m-4 -translate-y-16 rounded-[36px] md:m-12 md:-translate-y-32 md:rounded-[64px] lg:flex lg:w-9/12 lg:flex-col">
+          <div className="relative z-10 flex flex-col p-8 md:p-16 lg:p-32 lg:pb-48">
+            <h2 className="neon py-4 text-center text-lime-50 md:py-8">
               top audit scores
             </h2>
-            <div className="flex justify-around pb-4 md:pb-8">
-              {/* Glow SVG */}
-              <svg width="0" height="0">
-                <defs>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="8" result="coloredBlur" />
-                    <feMerge>
-                      <feMergeNode in="coloredBlur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                </defs>
-              </svg>
-
+            <div className="flex justify-around pb-6 md:pb-8 lg:px-24 lg:pb-16">
               <ProgressCircle pathProgress={path1} />
               <ProgressCircle pathProgress={path2} />
               <ProgressCircle pathProgress={path3} />
-              <ProgressCircle pathProgress={scrollYProgress} />
+              <ProgressCircle pathProgress={path4} />
             </div>
-            <div className="bg-gradient-to-b from-lime-200 via-neutral-400 to-neutral-600 bg-clip-text text-transparent md:px-4 lg:w-10/12 ">
+            <div className="bg-gradient-to-b from-lime-200 via-neutral-400 to-neutral-600 bg-clip-text text-transparent md:px-4 lg:px-24 ">
               <p className="pb-4 text-transparent md:pb-8 lg:pb-12">
                 Search engines, business stakeholders, and end-users gauge a
                 website’s value using metric tools like Google Lighthouse, which

@@ -14,26 +14,6 @@
   }
 }
 
-#progress {
-  transform: rotate(-90deg);
-  filter: url(#glow);
-}
-
-circle {
-  stroke-dashoffset: 0;
-  stroke-width: 6%;
-  fill: none;
-}
-
-.bg {
-  stroke: #efffe2;
-  opacity: 0.3;
-}
-
-#progress .indicator {
-  stroke: #d3ffaf;
-}
-
 * {
   color: #111111;
 }
@@ -61,7 +41,7 @@ h2 {
   }
 
   @include desktop {
-    font-size: 6rem; /* 96px */
+    font-size: 8rem; /* 96px */
   }
 }
 
@@ -86,12 +66,8 @@ h4 {
   line-height: 1.5rem; /* 24px */
 
   @include tablet {
-    font-size: 2rem;
-    line-height: 2.5rem;
-  }
-
-  @include desktop {
     font-size: 2rem; /* 32px */
+    line-height: 2.5rem; /* 40px */
   }
 }
 
@@ -100,11 +76,11 @@ p {
   font-weight: 400; /* Medium */
 
   @include tablet {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* 24px */
   }
 
   @include desktop {
-    font-size: 1.75rem; /* 28px */
+    font-size: 2rem; /* 32px */
     font-weight: 300; /* Regular */
   }
 }
@@ -118,18 +94,33 @@ code {
 }
 
 .score {
-  font-size: 1rem;
+  font-size: 1rem; /* 16px */
   font-weight: 500; /* Medium */
+  text-shadow:
+    0 0 10px #90ff74,
+    0 0 20px #90ff74,
+    0 0 30px #e9e11f,
+    0 0 40px #e9e11f,
+    0 0 50px #90ff74,
+    0 0 60px #90ff74,
+    0 0 70px #90ff74;
 
   @include tablet {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* 24px */
   }
 
   @include desktop {
-    font-size: 0.5rem; /* 8px */
+    font-size: 3rem; /* 48px */
+    font-weight: 600; /* Semi-Bold */
   }
 }
 
+.neon {
+  filter: drop-shadow(0px 0rem 2rem rgba(233, 225, 31, 0.5))
+    drop-shadow(0px 0rem 0.5rem rgba(83, 251, 42, 0.5));
+}
+
+// Intro
 .hero {
   position: relative;
   width: 100%;
@@ -140,13 +131,9 @@ code {
   }
 
   &__image {
-    // position: absolute;
     border-radius: 48px;
     width: 180px;
     height: 475px;
-    // Move to center, then apply translations from center point.
-    // left: 50%;
-    // transform: translateX(-50%);
 
     @include tablet {
       border-radius: 64px;
@@ -214,6 +201,7 @@ code {
   }
 }
 
+// Glow animation for code
 @keyframes glow {
   from {
     text-shadow:
@@ -225,6 +213,7 @@ code {
   }
 }
 
+// Logos
 .logo {
   margin: 2rem;
   animation: logoAnimation 2s ease-in-out infinite alternate;
@@ -251,6 +240,7 @@ code {
   }
 }
 
+// Audit Scores
 .glass {
   &__gradient {
     background: linear-gradient(
@@ -265,4 +255,30 @@ code {
   &__border {
     border: 1px solid rgba(113, 129, 109, 0.2);
   }
+}
+
+// Progress Circle Styles
+#progress {
+  transform: rotate(-90deg);
+  filter: drop-shadow(0px 0rem 0.5rem #e9e11f)
+    drop-shadow(0px 0rem 1rem #53fb2a);
+}
+
+circle {
+  stroke-dashoffset: 0;
+  stroke-width: 4%;
+  fill: none;
+
+  @include desktop {
+    stroke-width: 2%;
+  }
+}
+
+.bg {
+  stroke: #efffe2;
+  opacity: 0.3;
+}
+
+#progress .indicator {
+  stroke: #d3ffaf;
 }

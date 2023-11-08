@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useRef } from 'react';
-import { m, useTransform, useScroll, useMotionValueEvent } from 'framer-motion';
+import { m, useTransform, useScroll } from 'framer-motion';
 
 export default function Markup() {
   const ref = useRef(null);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { m, MotionValue, useMotionValueEvent } from 'framer-motion';
 
 interface ProgressCircleProps {
@@ -32,7 +32,7 @@ export default function ProgressCircle({ pathProgress }: ProgressCircleProps) {
       </svg>
       <m.p
         style={{ opacity: pathProgress }}
-        className="score absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] text-lime-200"
+        className="score absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] text-lime-50"
       >
         {progress}
       </m.p>

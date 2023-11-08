@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState, useEffect, Suspense, lazy } from 'react';
 
 const Experience = lazy(() => import('./Experience'));
