@@ -1,36 +1,27 @@
 import Image from 'next/image';
-import { useEffect, useState, useRef } from 'react';
-import { m, MotionValue, useMotionValueEvent } from 'framer-motion';
+import { useRef } from 'react';
+import { m, useTransform, useScroll, useMotionValueEvent } from 'framer-motion';
 
-interface MotionProps {
-  scrollY: MotionValue<number>;
-}
+export default function Markup() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['center end', 'end start'],
+  });
+  const y1 = useTransform(scrollYProgress, [0, 1], ['0%', '-25%']);
+  const y2 = useTransform(scrollYProgress, [0, 1], ['0%', '-50%']);
+  const y3 = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
 
-export default function Markup({ scrollY }: MotionProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const sectionTopRef = useRef<number>(0);
-
-  // Find the top of the div in pixels and store it in a ref to retain across renders.
-  useEffect(() => {
-    if (ref.current === null) {
-      return;
-    }
-    sectionTopRef.current = ref.current.getBoundingClientRect().top;
-  }, []);
-
-  // Subtract scrollY from sectionTop, resulting in the new top starting from 0.
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    const offsetTop = latest - sectionTopRef.current;
-    if (offsetTop < 0) {
-      return;
-    }
-    // Use this value to
-    return console.log(offsetTop);
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    console.log('Scroll changed to', latest);
   });
 
   return (
-    <div ref={ref}>
-      <section className="relative mt-[12rem] flex flex-col justify-center md:mt-[32rem] lg:relative lg:mx-auto lg:mt-[48rem] lg:h-screen lg:flex-row">
+    <div className="mt-[12rem] flex justify-center  md:mt-[32rem]  lg:mt-[48rem]">
+      <section
+        ref={ref}
+        className="justify-centerlg:relative relative flex flex-col lg:mx-auto lg:h-screen lg:flex-row"
+      >
         {/* Text */}
         <section className="relative z-10 m-12 flex flex-col items-center justify-center text-center md:m-16 lg:z-10 lg:m-24 lg:max-w-screen-2xl lg:items-start lg:justify-start lg:text-left">
           <m.h1>markup</m.h1>
@@ -43,33 +34,80 @@ export default function Markup({ scrollY }: MotionProps) {
         </section>
         {/* Text */}
         {/* Rectangular gradients and blur + Javascript */}
-        <section className="hero h-[900px] md:h-[2000px] lg:h-[1400px]">
-          <Image
-            className="hero__image"
-            src="/images/bricks.jpg"
-            width={280}
-            height={630}
-            quality={100}
-            alt="A colorful brick wall made out of Legos, photographed by Omar Flores"
-          />
-          <Image
-            className="hero__image"
-            src="/images/bricks.jpg"
-            width={280}
-            height={670}
-            quality={100}
-            alt="A colorful brick wall made out of Legos, photographed by Omar Flores"
-          />
-          <div className="hero__image hero__blur"></div>
-          <div className="hero__image hero__blur"></div>
+        <section className="hero flex h-[900px] flex-col items-center justify-start pt-36 md:h-[1600px] md:pt-48 lg:left-[24rem] lg:h-[1400px]">
+          <m.div className="absolute w-fit" style={{ y: y1 }}>
+            <Image
+              style={{
+                transform: `translateX(-80%) translateY(30%)`,
+              }}
+              className="hero__image"
+              src="/images/bricks.jpg"
+              width={280}
+              height={630}
+              quality={100}
+              priority
+              alt="A colorful brick wall made out of Legos, photographed by Omar Flores"
+            />
+          </m.div>
+
+          <m.div className="absolute w-fit" style={{ y: y2 }}>
+            <Image
+              className="hero__image"
+              style={{
+                transform: `translateX(35%) translateY(0%)`,
+              }}
+              src="/images/bricks.jpg"
+              width={280}
+              height={670}
+              quality={100}
+              priority
+              alt="A colorful brick wall made out of Legos, photographed by Omar Flores"
+            />
+          </m.div>
+
+          <m.div className="absolute w-fit" style={{ y: y1 }}>
+            <div
+              className="hero__image hero__blur"
+              style={{
+                transform: `translateX(-20%) translateY(70%)`,
+              }}
+            ></div>
+          </m.div>
+
+          <m.div className="absolute w-fit" style={{ y: y2 }}>
+            <div
+              className="hero__image hero__blur"
+              style={{
+                transform: `translateX(90%) translateY(50%)`,
+              }}
+            ></div>
+          </m.div>
+          <m.div
+            className="absolute bottom-24 w-9/12 md:bottom-48 lg:bottom-64 lg:hidden lg:w-1/3"
+            style={{ y: y3 }}
+          >
+            <Image
+              src="/images/brick-falling.svg"
+              className="w-full"
+              width={360}
+              height={260}
+              alt="A vector of bricks falling."
+            />
+          </m.div>
+        </section>
+        {/* Conditionally render on desktop to exit vertical flow*/}
+        <m.div
+          className="absolute hidden w-9/12 lg:bottom-0 lg:left-32 lg:block lg:w-1/3"
+          style={{ y: y3 }}
+        >
           <Image
             src="/images/brick-falling.svg"
-            className="absolute bottom-16 left-1/2 z-20 w-9/12 -translate-x-1/2 md:bottom-72 md:w-9/12 lg:left-1/4 lg:w-1/3"
+            className="w-full"
             width={360}
             height={260}
             alt="A vector of bricks falling."
           />
-        </section>
+        </m.div>
       </section>
     </div>
   );

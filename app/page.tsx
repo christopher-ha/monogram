@@ -12,12 +12,6 @@ import { useScroll } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
 
 export default function Home() {
-  const ref = useRef(null);
-  const { scrollY } = useScroll({
-    target: ref,
-    offset: ['start start', 'start end'],
-  });
-
   useEffect(() => {
     const lenis = new Lenis();
 
@@ -31,12 +25,12 @@ export default function Home() {
 
   return (
     <LazyMotion features={domAnimation}>
-      <main ref={ref} className="flex flex-col justify-center">
+      <main className="flex flex-col justify-center">
         {/* Title, CTA, and Gradients */}
         <Intro />
 
         {/* Javascript*/}
-        <Javascript scrollY={scrollY} />
+        <Javascript />
 
         {/* Logos */}
         <Logos />
@@ -45,7 +39,7 @@ export default function Home() {
         <API />
 
         {/* Markup */}
-        <Markup scrollY={scrollY} />
+        <Markup />
 
         {/* Top Audit Scores */}
         <Scores />

@@ -1,18 +1,8 @@
 import Image from 'next/image';
-import { m, useTransform, MotionValue } from 'framer-motion';
 
-interface MotionProps {
-  scrollY: MotionValue<number>;
-}
-
-export default function Javascript({ scrollY }: MotionProps) {
-  const yHero = useTransform(scrollY, (value: number) => value * -0.02);
-
+export default function Javascript() {
   return (
-    <m.section
-      style={{ y: yHero }}
-      className="hero__full relative z-10 mx-4 flex h-[500px] flex-col items-center rounded-[48px] bg-transparent md:m-0 md:mx-8 md:h-[900px] lg:mx-auto lg:mt-48 lg:max-w-screen-2xl"
-    >
+    <section className="hero__full relative z-10 mx-4 flex h-[500px] flex-col items-center rounded-[48px] bg-transparent md:m-0 md:mx-8 md:h-[900px] lg:mx-auto lg:mt-48 lg:max-w-screen-2xl">
       <Image
         className="hero__background z-0 h-[450px] max-h-full max-w-full rounded-3xl md:h-[850px] md:rounded-[4rem] lg:w-[2048px]"
         src="/images/gradient-full.jpg"
@@ -51,7 +41,7 @@ export default function Javascript({ scrollY }: MotionProps) {
           </pre>
         </div>
       </div>
-    </m.section>
+    </section>
   );
 }
 

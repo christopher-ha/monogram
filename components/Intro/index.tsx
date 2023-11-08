@@ -19,18 +19,9 @@ export default function Intro() {
     target: ref,
     offset: ['start start', 'end start'],
   });
-  let y1 = useTransform(scrollYProgress, [0, 1], ['0%', '-50%']);
-  let y2 = useTransform(scrollYProgress, [0, 1], ['0%', '-100%']);
-  // const yImage1 = useTransform(scrollY, (value: number) => value * -0.1 + 100);
-  // const yImage2 = useTransform(scrollY, (value: number) => value * -0.2 + 100);
-  // const yText1 = useTransform(scrollY, (value: number) => value * -0.3);
-  // const yText2 = useTransform(scrollY, (value: number) => value * -0.2);
-  // const rotation = useTransform(scrollY, [0, 1200], [0, 60]);
+  const y1 = useTransform(scrollYProgress, [0, 1], ['0%', '-50%']);
+  const y2 = useTransform(scrollYProgress, [0, 1], ['0%', '-100%']);
   const rotation = useTransform(scrollYProgress, [0, 1], [0, 60]);
-
-  useMotionValueEvent(rotation, 'change', (latest) => {
-    console.log('ScrollProgress:', latest);
-  });
 
   return (
     <section
@@ -68,7 +59,7 @@ export default function Intro() {
         />
       </m.div>
       {/* Rectangular gradients and blur + Javascript */}
-      <section className="hero flex h-[700px] flex-col items-center justify-center md:h-[1200px] lg:left-[24rem] lg:h-[1400px]">
+      <section className="hero flex h-[800px] flex-col items-center justify-center md:h-[1200px] lg:left-[24rem] lg:h-[1400px]">
         <m.div className="absolute w-fit" style={{ y: y1 }}>
           <Image
             style={{
