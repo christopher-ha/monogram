@@ -44,8 +44,6 @@ export default function Markup() {
               src="/images/bricks.jpg"
               width={280}
               height={630}
-              quality={100}
-              priority
               alt="A colorful brick wall made out of Legos, photographed by Omar Flores"
             />
           </m.div>
@@ -59,8 +57,6 @@ export default function Markup() {
               src="/images/bricks.jpg"
               width={280}
               height={670}
-              quality={100}
-              priority
               alt="A colorful brick wall made out of Legos, photographed by Omar Flores"
             />
           </m.div>
