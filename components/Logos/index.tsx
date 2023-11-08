@@ -10,30 +10,22 @@ export default function Logos() {
       >
         <path
           fill="#171717"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,96L120,85.3C240,75,480,53,720,53.3C960,53,1200,75,1320,85.3L1440,96L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
         ></path>
       </svg>
-      {/* <Image
-        className="absolute -top-48  w-full scale-y-[500%]"
-        alt="Wave"
-        src="/images/wave-top.png"
-        quality={100}
-        width={1440}
-        height={320}
-      /> */}
       <div className="flex flex-col items-center lg:mx-auto lg:max-w-screen-2xl">
         {/* Desktop: Row, 2 - Space Around */}
         <div className="flex flex-col items-center lg:flex lg:w-full lg:flex-row lg:justify-around">
           <Image
-            className="logo opacity-100 md:w-[220px] lg:opacity-100"
+            className="logo opacity-100 md:w-[220px] lg:w-[250px] lg:opacity-100"
             alt="React.js Logo"
             src="/logos/react.svg"
             width={140}
             height={64}
           />
           <Image
-            className="logo opacity-75 md:w-[180px] lg:opacity-100"
+            className="logo opacity-75 md:w-[180px] lg:w-[220px] lg:opacity-100"
             alt="Next.js Logo"
             src="/logos/next.svg"
             width={128}
@@ -42,7 +34,7 @@ export default function Logos() {
         </div>
         {/* Desktop: Row, 1 */}
         <Image
-          className="logo opacity-20 md:w-[200px] lg:opacity-50"
+          className="logo opacity-20 md:w-[200px] lg:w-[240px] lg:opacity-50"
           alt="Vue.js Logo"
           src="/logos/vue.svg"
           width={140}
@@ -51,7 +43,7 @@ export default function Logos() {
         {/* Desktop, Row, 2 - Space Between */}
         <div className="lg:flex lg:w-full lg:flex-row lg:justify-between">
           <Image
-            className="logo pb-12 opacity-10 md:w-[200px] lg:opacity-30"
+            className="logo pb-12 opacity-10 md:w-[200px] lg:w-[260px] lg:opacity-30"
             alt="Svelte.js Logo"
             src="/logos/svelte.svg"
             width={150}
@@ -59,7 +51,7 @@ export default function Logos() {
           />
           {/* Begin: Additional Logos (Desktop) -- All items below this point are only rendered on desktop.  */}
           <Image
-            className="logo hidden lg:block lg:w-[220px] lg:opacity-30"
+            className="logo hidden lg:block lg:w-[250px] lg:opacity-30"
             alt="React.js Logo"
             src="/logos/react.svg"
             width={140}
@@ -68,7 +60,7 @@ export default function Logos() {
         </div>
         {/* Desktop: Row, 1 */}
         <Image
-          className="logo hidden lg:block lg:w-[180px] lg:opacity-20"
+          className="logo hidden lg:block lg:w-[220px] lg:opacity-20"
           alt="Next.js Logo"
           src="/logos/next.svg"
           width={128}
@@ -77,14 +69,14 @@ export default function Logos() {
         {/* Desktop: Row, 2 - Space Around */}
         <div className="lg:flex lg:w-full lg:flex-row lg:justify-around">
           <Image
-            className="logo hidden lg:block lg:w-[200px] lg:opacity-10"
+            className="logo hidden lg:block lg:w-[240px] lg:opacity-10"
             alt="Vue.js Logo"
             src="/logos/vue.svg"
             width={140}
             height={64}
           />
           <Image
-            className="logo hidden pb-12 lg:block lg:w-[200px] lg:opacity-10"
+            className="logo hidden pb-12 lg:block lg:w-[260px] lg:opacity-10"
             alt="Svelte.js Logo"
             src="/logos/svelte.svg"
             width={150}

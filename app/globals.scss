@@ -130,27 +130,7 @@ code {
     }
   }
 
-  &__first {
-    transform: translateX(-80%) translateY(30%);
-  }
-
-  &__second {
-    transform: translateX(35%) translateY(0%);
-  }
-
-  &__third {
-    transform: translateX(-20%) translateY(70%);
-  }
-
-  &__fourth {
-    transform: translateX(90%) translateY(50%);
-  }
-
   &__full {
-    // background-image: url('/gradient-full.jpg');
-    // background-size: 250%;
-    // background-repeat: no-repeat;
-    // background-position: right;
     @include tablet {
       border-radius: 64px;
     }
@@ -216,13 +196,28 @@ code {
 }
 
 .logo {
-  width: auto;
   margin: 2rem;
-  animation: opacity 1s ease-in-out;
+  animation: logoAnimation 2s ease-in-out infinite alternate;
   filter: drop-shadow(0px -2rem 3rem #ffffff);
+  transition: transform 0.1s ease-in-out;
 
   @include tablet {
     margin: 4rem;
+  }
+
+  &:nth-child(even) {
+    animation-delay: 1s;
+  }
+}
+
+@keyframes logoAnimation {
+  from {
+    filter: drop-shadow(0px -2rem 3rem #ffffff);
+    transform: rotate(-2deg);
+  }
+  to {
+    filter: drop-shadow(0px 0rem 1rem rgba(255, 255, 255, 0.75));
+    transform: rotate(2deg);
   }
 }
 

@@ -45,7 +45,7 @@ export default function Home() {
         <API />
 
         {/* Markup */}
-        <Markup />
+        <Markup scrollY={scrollY} />
 
         {/* Top Audit Scores */}
         <Scores />

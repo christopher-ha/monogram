@@ -8,8 +8,8 @@ interface MotionProps {
 export default function Intro({ scrollY }: MotionProps) {
   const yImage1 = useTransform(scrollY, (value: number) => value * -0.1 + 100);
   const yImage2 = useTransform(scrollY, (value: number) => value * -0.2 + 100);
-  const yText1 = useTransform(scrollY, (value: number) => value * -0.2);
-  const yText2 = useTransform(scrollY, (value: number) => value * -0.3);
+  const yText1 = useTransform(scrollY, (value: number) => value * -0.3);
+  const yText2 = useTransform(scrollY, (value: number) => value * -0.2);
   const rotation = useTransform(scrollY, [0, 1200], [0, 60]);
 
   return (

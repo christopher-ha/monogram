@@ -1,24 +1,14 @@
 import Image from 'next/image';
 import { useEffect, useState, useRef } from 'react';
-import {
-  m,
-  useTransform,
-  MotionValue,
-  useScroll,
-  useMotionValueEvent,
-} from 'framer-motion';
+import { m, MotionValue, useMotionValueEvent } from 'framer-motion';
 
 interface MotionProps {
   scrollY: MotionValue<number>;
 }
 
-export default function Markup() {
+export default function Markup({ scrollY }: MotionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const sectionTopRef = useRef<number>(0);
-  const { scrollY } = useScroll({
-    target: ref,
-    offset: ['start start', 'end end'],
-  });
 
   // Find the top of the div in pixels and store it in a ref to retain across renders.
   useEffect(() => {
