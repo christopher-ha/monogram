@@ -9,10 +9,10 @@ export default function Scores() {
     target: ref,
     offset: ['25% end', '30% center'],
   });
-  const path1 = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const path2 = useTransform(scrollYProgress, [0, 0.66], [0, 1]);
-  const path3 = useTransform(scrollYProgress, [0, 0.88], [0, 1]);
-  const path4 = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  // const path1 = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  // const path2 = useTransform(scrollYProgress, [0, 0.66], [0, 1]);
+  // const path3 = useTransform(scrollYProgress, [0, 0.88], [0, 1]);
+  // const path4 = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <section className="overflow-hidden">
@@ -37,10 +37,10 @@ export default function Scores() {
               top audit scores
             </h2>
             <div className="flex justify-around pb-6 md:pb-8 lg:px-24 lg:pb-16">
-              <ProgressCircle pathProgress={path1} />
-              <ProgressCircle pathProgress={path2} />
-              <ProgressCircle pathProgress={path3} />
-              <ProgressCircle pathProgress={path4} />
+              <ProgressCircle pathProgress={scrollYProgress} />
+              <ProgressCircle pathProgress={scrollYProgress} />
+              <ProgressCircle pathProgress={scrollYProgress} />
+              <ProgressCircle pathProgress={scrollYProgress} />
             </div>
             <div className="bg-gradient-to-b from-lime-200 via-neutral-400 to-neutral-600 bg-clip-text text-transparent md:px-4 lg:px-24 ">
               <p className="pb-4 text-transparent md:pb-8 lg:pb-12">
