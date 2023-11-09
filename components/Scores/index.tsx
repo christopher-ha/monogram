@@ -36,7 +36,7 @@ export default function Scores() {
             <h2 className="neon py-4 text-center text-lime-50 md:py-8">
               top audit scores
             </h2>
-            <div className="flex justify-around pb-6 md:pb-8 lg:px-24 lg:pb-16">
+            <div className="flex justify-around pb-6 md:pb-8 lg:pb-16">
               <ProgressCircle pathProgress={path1} />
               <ProgressCircle pathProgress={path2} />
               <ProgressCircle pathProgress={path3} />

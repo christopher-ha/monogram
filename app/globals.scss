@@ -37,11 +37,11 @@ h2 {
   font-weight: 900; /* Black */
 
   @include tablet {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
 
   @include desktop {
-    font-size: 8rem; /* 96px */
+    font-size: 7rem; /* 112px */
   }
 }
 
@@ -106,11 +106,11 @@ code {
     0 0 70px #90ff74;
 
   @include tablet {
-    font-size: 1.5rem; /* 24px */
+    font-size: 2rem; /* 24px */
   }
 
   @include desktop {
-    font-size: 3rem; /* 48px */
+    font-size: 4rem; /* 48px */
     font-weight: 600; /* Semi-Bold */
   }
 }
@@ -144,6 +144,34 @@ code {
     @include desktop {
       width: 280px;
       height: 670px;
+    }
+  }
+
+  &__image--1 {
+    transform: translateX(-80%) translateY(30%);
+    @include desktop {
+      transform: translateX(35%) translateY(-10%);
+    }
+  }
+
+  &__image--2 {
+    transform: translateX(35%) translateY(0%);
+    @include desktop {
+      transform: translateX(150%) translateY(-30%);
+    }
+  }
+
+  &__image--3 {
+    transform: translateX(-20%) translateY(70%);
+    @include desktop {
+      transform: translateX(80%) translateY(40%);
+    }
+  }
+
+  &__image--4 {
+    transform: translateX(90%) translateY(50%);
+    @include desktop {
+      transform: translateX(190%) translateY(10%);
     }
   }
 

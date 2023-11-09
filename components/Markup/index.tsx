@@ -13,7 +13,7 @@ export default function Markup() {
   const y3 = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
 
   return (
-    <div className="mt-[12rem] flex justify-center  md:mt-[32rem]  lg:mt-[48rem]">
+    <div className="mt-[16rem] flex justify-center  md:mt-[32rem]  lg:mt-[48rem]">
       <section
         ref={ref}
         className="justify-centerlg:relative relative flex flex-col lg:mx-auto lg:h-screen lg:flex-row"
@@ -29,14 +29,11 @@ export default function Markup() {
           </m.h4>
         </section>
         {/* Rectangular gradients and blur*/}
-        <section className="hero flex h-[900px] flex-col items-center justify-start pt-36 md:h-[1600px] md:pt-48 lg:left-[24rem] lg:h-[1400px]">
+        <section className="hero flex h-[900px] flex-col items-center justify-start pt-24 md:h-[1600px] md:pt-48 lg:h-[1400px] lg:pt-96">
           {/* Brick Left */}
           <m.div className="absolute w-fit" style={{ y: y1 }}>
             <Image
-              style={{
-                transform: `translateX(-80%) translateY(30%)`,
-              }}
-              className="hero__image"
+              className="hero__image hero__image--1"
               src="/images/bricks.jpg"
               width={280}
               height={630}
@@ -47,10 +44,7 @@ export default function Markup() {
           {/* Brick Right */}
           <m.div className="absolute w-fit" style={{ y: y2 }}>
             <Image
-              className="hero__image"
-              style={{
-                transform: `translateX(35%) translateY(0%)`,
-              }}
+              className="hero__image hero__image--2"
               src="/images/bricks.jpg"
               width={280}
               height={670}
@@ -60,22 +54,12 @@ export default function Markup() {
 
           {/* Blur Left */}
           <m.div className="absolute w-fit" style={{ y: y1 }}>
-            <div
-              className="hero__image hero__blur"
-              style={{
-                transform: `translateX(-20%) translateY(70%)`,
-              }}
-            ></div>
+            <div className="hero__image hero__image--3 hero__blur"></div>
           </m.div>
 
           {/* Blur Right */}
           <m.div className="absolute w-fit" style={{ y: y2 }}>
-            <div
-              className="hero__image hero__blur"
-              style={{
-                transform: `translateX(90%) translateY(50%)`,
-              }}
-            ></div>
+            <div className="hero__image hero__image--4 hero__blur"></div>
           </m.div>
 
           {/* Bricks Falling, hide on desktop*/}

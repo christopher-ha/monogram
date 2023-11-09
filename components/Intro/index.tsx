@@ -18,7 +18,7 @@ export default function Intro() {
       className="flex flex-col justify-center lg:relative lg:mx-auto lg:h-screen lg:max-w-screen-2xl lg:flex-row"
     >
       {/* Header and Description */}
-      <section className="relative z-10 m-12 flex flex-col items-center justify-center text-center md:m-16 md:mb-32 lg:z-10 lg:m-24 lg:items-start lg:justify-start lg:text-left">
+      <section className="relative z-10 m-12 mb-0 flex flex-col items-center justify-center text-center md:m-16 md:mb-32 lg:z-10 lg:m-24 lg:items-start lg:justify-start lg:text-left">
         <m.h1 style={{ y: y2 }}>
           jamstack{' '}
           <span className="bg-gradient-to-r from-orange-300 via-red-300 to-purple-400 bg-clip-text text-transparent">
@@ -35,7 +35,7 @@ export default function Intro() {
       </section>
       <m.div
         style={{ rotate: rotation }}
-        className="md: absolute -bottom-[5rem] left-[3rem] origin-[-150px] md:-bottom-[12rem] md:left-[8rem] md:origin-[-400px] lg:-bottom-[32rem] lg:left-64 lg:origin-[-450px]"
+        className="md: absolute -bottom-[3rem] left-[3rem] origin-[-150px] md:-bottom-[12rem] md:left-[8rem] md:origin-[-400px] lg:-bottom-[32rem] lg:left-64 lg:origin-[-450px]"
       >
         <Image
           className="w-[200px] md:w-[300px] lg:w-[350px]"
@@ -48,14 +48,11 @@ export default function Intro() {
         />
       </m.div>
       {/* Rectangular gradients and blur */}
-      <section className="hero flex h-[800px] flex-col items-center justify-center md:h-[1200px] lg:left-[24rem] lg:h-[1400px]">
+      <section className="hero flex h-[800px] flex-col items-center justify-center md:h-[1200px] lg:h-[1400px]">
         <m.div className="absolute w-fit" style={{ y: y1 }}>
           {/* Gradient Left */}
           <Image
-            style={{
-              transform: `translateX(-80%) translateY(30%)`,
-            }}
-            className="hero__image"
+            className="hero__image hero__image--1"
             src="/images/gradient-left.jpg"
             width={280}
             height={630}
@@ -68,10 +65,7 @@ export default function Intro() {
         {/* Gradient Right */}
         <m.div className="absolute w-fit" style={{ y: y2 }}>
           <Image
-            className="hero__image"
-            style={{
-              transform: `translateX(35%) translateY(0%)`,
-            }}
+            className="hero__image hero__image--2"
             src="/images/gradient-right.jpg"
             width={280}
             height={670}
@@ -83,22 +77,12 @@ export default function Intro() {
 
         {/* Blur Left */}
         <m.div className="absolute w-fit" style={{ y: y1 }}>
-          <div
-            className="hero__image hero__blur"
-            style={{
-              transform: `translateX(-20%) translateY(70%)`,
-            }}
-          ></div>
+          <div className="hero__image hero__image--3 hero__blur"></div>
         </m.div>
 
         {/* Blur Right */}
         <m.div className="absolute w-fit" style={{ y: y2 }}>
-          <div
-            className="hero__image hero__blur"
-            style={{
-              transform: `translateX(90%) translateY(50%)`,
-            }}
-          ></div>
+          <div className="hero__image hero__image--4 hero__blur"></div>
         </m.div>
       </section>
     </section>
