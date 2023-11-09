@@ -5,7 +5,7 @@ export default function API() {
   return (
     <section className="relative bg-neutral-900 text-center">
       {/* Text */}
-      <section className="relative p-12 pb-32 md:pb-64 lg:mx-auto lg:max-w-screen-2xl lg:pb-96">
+      <section className="relative p-12 pb-32 md:pb-72 lg:mx-auto lg:max-w-screen-2xl lg:pb-96 xl:pb-[32rem]">
         <h1 className="text-neutral-100">api</h1>
         <h4 className="py-8 text-neutral-200 md:p-12 lg:px-72">
           At build time, a Jamstack website uses data from one or more APIs to
