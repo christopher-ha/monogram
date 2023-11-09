@@ -1,12 +1,28 @@
 'use client';
 
-import Intro from '../components/Intro';
-import Javascript from '../components/Javascript';
-import Logos from '../components/Logos';
-import API from '../components/API';
-import Markup from '../components/Markup';
-import Scores from '../components/Scores';
 import { LazyMotion, domAnimation } from 'framer-motion';
+import dynamic from 'next/dynamic';
+import Intro from '../components/Intro';
+
+const Javascript = dynamic(() => import('../components/Javascript'), {
+  loading: () => <p>Loading...</p>,
+});
+
+const Logos = dynamic(() => import('../components/Logos'), {
+  loading: () => <p>Loading...</p>,
+});
+
+const API = dynamic(() => import('../components/API'), {
+  loading: () => <p>Loading...</p>,
+});
+
+const Markup = dynamic(() => import('../components/Markup'), {
+  loading: () => <p>Loading...</p>,
+});
+
+const Scores = dynamic(() => import('../components/Scores'), {
+  loading: () => <p>Loading...</p>,
+});
 
 export default function Home() {
   return (
