@@ -28,9 +28,9 @@ export default function Markup() {
             lightning-fast over a CDN like Vercel’s Edge Network.
           </m.h4>
         </section>
-        {/* Text */}
-        {/* Rectangular gradients and blur + Javascript */}
+        {/* Rectangular gradients and blur*/}
         <section className="hero flex h-[900px] flex-col items-center justify-start pt-36 md:h-[1600px] md:pt-48 lg:left-[24rem] lg:h-[1400px]">
+          {/* Brick Left */}
           <m.div className="absolute w-fit" style={{ y: y1 }}>
             <Image
               style={{
@@ -44,6 +44,7 @@ export default function Markup() {
             />
           </m.div>
 
+          {/* Brick Right */}
           <m.div className="absolute w-fit" style={{ y: y2 }}>
             <Image
               className="hero__image"
@@ -57,6 +58,7 @@ export default function Markup() {
             />
           </m.div>
 
+          {/* Blur Left */}
           <m.div className="absolute w-fit" style={{ y: y1 }}>
             <div
               className="hero__image hero__blur"
@@ -66,6 +68,7 @@ export default function Markup() {
             ></div>
           </m.div>
 
+          {/* Blur Right */}
           <m.div className="absolute w-fit" style={{ y: y2 }}>
             <div
               className="hero__image hero__blur"
@@ -74,6 +77,8 @@ export default function Markup() {
               }}
             ></div>
           </m.div>
+
+          {/* Bricks Falling, hide on desktop*/}
           <m.div
             className="absolute bottom-24 w-9/12 md:bottom-48 lg:bottom-64 lg:hidden lg:w-1/3"
             style={{ y: y3 }}
@@ -87,7 +92,7 @@ export default function Markup() {
             />
           </m.div>
         </section>
-        {/* Conditionally render on desktop to exit vertical flow*/}
+        {/* Conditionally render bricks falling on desktop to exit vertical flow*/}
         <m.div
           className="absolute hidden w-9/12 lg:bottom-0 lg:left-32 lg:block lg:w-1/3"
           style={{ y: y3 }}

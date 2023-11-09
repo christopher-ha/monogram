@@ -46,7 +46,6 @@ export default function Experience() {
       <Environment files="/3d/dawn.hdr" />
 
       {/* Objects */}
-      {/* Trigonometry: Math.PI / 4 = 90 degrees, Math.PI = 180 degrees, then 135 degrees is 3(PI)/4 */}
       <Float
         speed={2} // Animation speed, defaults to 1
         rotationIntensity={2} // XYZ rotation intensity, defaults to 1

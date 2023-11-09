@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import Image from 'next/image';
-import { useScroll, useMotionValueEvent, useTransform } from 'framer-motion';
+import { useScroll, useTransform } from 'framer-motion';
 import ProgressCircle from './ProgressCircle';
 
 export default function Scores() {
@@ -29,7 +29,9 @@ export default function Scores() {
         ref={ref}
         className="bg-neutral-900 lg:flex lg:flex-col lg:items-center"
       >
+        {/* Blurred Glass Section */}
         <section className="glass__border lg:item-center relative z-20 m-4 -translate-y-16 rounded-[36px] md:m-12 md:-translate-y-32 md:rounded-[64px] lg:flex lg:w-9/12 lg:flex-col">
+          {/* Text */}
           <div className="relative z-10 flex flex-col p-8 md:p-16 lg:p-32 lg:pb-48">
             <h2 className="neon py-4 text-center text-lime-50 md:py-8">
               top audit scores
@@ -58,8 +60,10 @@ export default function Scores() {
               </p>
             </div>
           </div>
+          {/* Background for Blurred Glass Section */}
           <div className="glass__gradient absolute top-0 h-full w-full rounded-[32px] md:rounded-[64px]"></div>
         </section>
+        {/* Footer */}
         <footer className="text-center">
           <h4 className="pb-8 text-neutral-200">Christopher Ha for Monogram</h4>
           <h4 className="pb-16 text-pink-600 md:pb-32">❤️</h4>

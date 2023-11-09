@@ -47,9 +47,10 @@ export default function Intro() {
           alt="A computer mouse trailing a dotted line"
         />
       </m.div>
-      {/* Rectangular gradients and blur + Javascript */}
+      {/* Rectangular gradients and blur */}
       <section className="hero flex h-[800px] flex-col items-center justify-center md:h-[1200px] lg:left-[24rem] lg:h-[1400px]">
         <m.div className="absolute w-fit" style={{ y: y1 }}>
+          {/* Gradient Left */}
           <Image
             style={{
               transform: `translateX(-80%) translateY(30%)`,
@@ -64,6 +65,7 @@ export default function Intro() {
           />
         </m.div>
 
+        {/* Gradient Right */}
         <m.div className="absolute w-fit" style={{ y: y2 }}>
           <Image
             className="hero__image"
@@ -79,6 +81,7 @@ export default function Intro() {
           />
         </m.div>
 
+        {/* Blur Left */}
         <m.div className="absolute w-fit" style={{ y: y1 }}>
           <div
             className="hero__image hero__blur"
@@ -88,6 +91,7 @@ export default function Intro() {
           ></div>
         </m.div>
 
+        {/* Blur Right */}
         <m.div className="absolute w-fit" style={{ y: y2 }}>
           <div
             className="hero__image hero__blur"

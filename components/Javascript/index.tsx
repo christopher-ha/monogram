@@ -2,7 +2,8 @@ import Image from 'next/image';
 
 export default function Javascript() {
   return (
-    <section className="hero__full relative z-10 mx-4 flex h-[500px] flex-col items-center rounded-[48px] bg-transparent md:m-0 md:mx-8 md:h-[900px] lg:mx-auto lg:mt-48 lg:max-w-screen-2xl">
+    <section className="hero__full relative z-10 mx-4 flex h-[500px] flex-col items-center rounded-[3rem] bg-transparent md:m-0 md:mx-8 md:h-[900px] lg:mx-auto lg:mt-48 lg:max-w-screen-2xl">
+      {/* Background */}
       <Image
         className="hero__background z-0 h-[450px] max-h-full max-w-full rounded-3xl md:h-[850px] md:rounded-[4rem] lg:w-[2048px]"
         src="/images/gradient-full.jpg"
@@ -10,13 +11,15 @@ export default function Javascript() {
         height={768}
         alt="A gradient fade between yellow and orange"
       />
+      {/* Mouse Trail */}
       <Image
-        className="hidden lg:absolute lg:right-[4rem] lg:top-[12rem] lg:block lg:w-1/4"
+        className="hidden lg:absolute lg:right-16 lg:top-48 lg:block lg:w-1/4"
         src="/images/mouse-trail.png"
         width={1024}
         height={768}
         alt="A gradient fade between yellow and orange"
       />
+      {/* Text */}
       <div className="absolute z-50 flex flex-col items-center">
         <div className="flex flex-col items-center px-8 pb-0 pt-4 md:px-24 md:pt-8">
           <h1 className="text-center text-white">javascript</h1>

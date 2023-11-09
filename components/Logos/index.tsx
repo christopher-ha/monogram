@@ -3,6 +3,7 @@ import Image from 'next/image';
 export default function Logos() {
   return (
     <section className="relative z-0 m-0 bg-neutral-900 pt-48 md:pt-72">
+      {/* Wave SVG - Top */}
       <svg
         className="absolute -top-12 scale-y-[500%]"
         xmlns="http://www.w3.org/2000/svg"
